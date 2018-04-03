@@ -1,0 +1,30 @@
+{
+  "name": "durablefunctionsdeploymenttask",
+  "version": "1.0.0",
+  "description": "Durable Functions Deployment Task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask.git"
+  },
+  "keywords": [
+    "Durable",
+    "Functions"
+  ],
+  "author": "Tsuyoshi Ushio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask/issues"
+  },
+  "homepage": "https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask#readme",
+  "dependencies": {
+    "vsts-task-lib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^9.6.1",
+    "@types/q": "^1.5.0"
+  }
+}
