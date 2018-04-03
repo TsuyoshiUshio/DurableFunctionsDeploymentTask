@@ -1,0 +1,48 @@
+{
+  "id": "f7d0e750-3729-11e8-afef-c9a0905604c4",
+  "name": "cleanup",
+  "friendlyName": "Durable Functions Clean Up Taskhub",
+  "description": "Clean up to Taskhub",
+  "author": "Hiroyuki Kinoshita",
+  "helpMarkDown": "Replace with markdown to show in help",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "cleanup $(message)",
+  "inputs": [
+    {
+      "name": "cwd",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Current working directory when cleanup is run."
+    },
+    {
+      "name": "msg",
+      "type": "string",
+      "label": "Message",
+      "defaultValue": "Hello World",
+      "required": true,
+      "helpMarkDown": "Message to echo out"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "sample.js",
+      "argumentFormat": ""
+    },
+    "PowerShell3": {
+      "target": "sample.ps1"
+    }
+  }
+}

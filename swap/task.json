@@ -1,0 +1,48 @@
+{
+  "id": "e1253920-3729-11e8-8cb9-cde7ba8bf655",
+  "name": "swap",
+  "friendlyName": "Durable Functions Swap",
+  "description": "Swap form staging to production",
+  "author": "Hiroyuki Kinoshita",
+  "helpMarkDown": "Replace with markdown to show in help",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "0",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "1.95.0",
+  "instanceNameFormat": "swap $(message)",
+  "inputs": [
+    {
+      "name": "cwd",
+      "type": "filePath",
+      "label": "Working Directory",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Current working directory when swap is run."
+    },
+    {
+      "name": "msg",
+      "type": "string",
+      "label": "Message",
+      "defaultValue": "Hello World",
+      "required": true,
+      "helpMarkDown": "Message to echo out"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "sample.js",
+      "argumentFormat": ""
+    },
+    "PowerShell3": {
+      "target": "sample.ps1"
+    }
+  }
+}
