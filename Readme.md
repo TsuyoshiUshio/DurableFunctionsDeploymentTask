@@ -24,7 +24,26 @@ npm install
 
 # Develpyment 
 
-I've did this. 
+## Usage
+
+### compile 
+
+It execute typescript compile. It generate js files.
+
+```
+npm run compile
+```
+### deploy
+
+It deploy js files and copy node_modules into taks directories. If you want to add the directory, please add it to the `deploy.bat`
+
+```
+npm run deploy
+```
+
+## memo
+
+For the frist creation, I've did this. 
 
 ```
 npm install vsts-task-lib --save
