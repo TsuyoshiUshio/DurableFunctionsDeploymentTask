@@ -1,0 +1,107 @@
+{
+    "manifestVersion": 1,
+      "id": "durable-safe-deploy",
+      "version": "0.0.1",
+      "name": "Durable Function Safe Deployment extension",
+      "description": "Durable Function Deployment extension for safe-deployment. Work with Backend service",
+      "publisher": "TsuyoshiUshio",
+      "galleryFlags": [
+        "Public"
+      ],
+      "targets": [
+        {
+          "id": "Microsoft.VisualStudio.Services"
+        }
+      ],  
+      "icons": {
+        "default": "logo.png"
+      },
+      "categories": [
+        "Build and release"
+      ],
+      "tags": [
+        "kubernetes"
+      ],
+      "content": {
+        "details": {
+          "path": "durable.md"
+        }
+      },
+        "contributions": [
+        {
+          "id": "service-endpoint",
+          "description": "Service Endpoint type for Durable API connection",
+          "type": "ms.vss-endpoint.service-endpoint-type",
+          "targets": [ "ms.vss-endpoint.endpoint-types" ],
+          "properties": {
+            "name": "durableapi",
+            "displayName": "DurableAPI",
+            "config": {
+              "type": "string",
+              "description": "Please store the URL of the Durable Functions API endpoint",
+              "required": true
+            },
+            "helpMarkDown": "<a href=\"https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask\" target=\"_blank\"><b>Learn More</b></a>"
+          }
+        },
+        {
+          "id": "deployready",
+          "description": "Task check if the Staging Slot has no active tasks.",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [ "ms.vss-distributed-task.tasks" ],
+          "properties": {
+            "name": "deployready"
+          }
+        },
+        {
+          "id": "deploytostaging",
+          "description": "Task notify the durable api server that vsts deploys the deployment of Staging slot",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [ "ms.vss-distributed-task.tasks" ],
+          "properties": {
+            "name": "deploytostaging"
+          }
+        },
+        {
+          "id": "swap",
+          "description": "Task notify the durable api server that a swap happens.",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [ "ms.vss-distributed-task.tasks" ],
+          "properties": {
+            "name": "swap"
+          }
+        },
+        {
+          "id": "cleanup",
+          "description": "Task commands the durable api server to clean up",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [ "ms.vss-distributed-task.tasks" ],
+          "properties": {
+            "name": "cleanup"
+          }
+        },
+        {
+          "id": "kubectl-task",
+          "description": "Task execute kubectl command",
+          "type": "ms.vss-distributed-task.task",
+          "targets": [ "ms.vss-distributed-task.tasks" ],
+          "properties": {
+            "name": "tasks/kubectl"
+          }
+        }    
+      ],
+      "files": [
+        {
+          "path": "deployready"
+        },
+        {
+          "path": "deploystaging"
+        },
+        {
+          "path": "swap"
+        },
+        {
+          "path": "clean"
+        }
+      ]
+    }
