@@ -19,6 +19,13 @@
   "minimumAgentVersion": "1.95.0",
   "instanceNameFormat": "deployready $(message)",
   "inputs": [
+    {
+      "name": "durableService",
+      "type": "connectedService:durableapi",
+      "label": "Durable API endpoint",
+      "required": true,
+      "helpMarkDown": "Select the Durable API endopoint to use."
+    }
   ],
   "execution": {
     "Node": {

@@ -7,7 +7,7 @@ export class DeployReadyCommand {
     serverURI : string;
 
     constructor() {
-        this.endpoint = tl.getInput('deisService');
+        this.endpoint = tl.getInput('durableService');
         this.serverURI = tl.getEndpointUrl(this.endpoint, true);
     }
 

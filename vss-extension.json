@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
       "id": "durable-safe-deploy",
-      "version": "0.0.4",
+      "version": "0.0.5",
       "name": "Durable Function Safe Deployment extension",
       "description": "Durable Function Deployment extension for safe-deployment. Work with Backend service",
       "publisher": "TsuyoshiUshio",
@@ -20,7 +20,7 @@
         "Build and release"
       ],
       "tags": [
-        "kubernetes"
+        "durable"
       ],
       "content": {
         "details": {
@@ -35,7 +35,7 @@
           "targets": [ "ms.vss-endpoint.endpoint-types" ],
           "properties": {
             "name": "durableapi",
-            "displayName": "DurableAPI",
+            "displayName": "Durable API",
             "config": {
               "type": "string",
               "description": "Please store the URL of the Durable Functions API endpoint",
