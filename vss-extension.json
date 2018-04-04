@@ -1,12 +1,12 @@
 {
     "manifestVersion": 1,
       "id": "durable-safe-deploy",
-      "version": "0.0.1",
+      "version": "0.0.4",
       "name": "Durable Function Safe Deployment extension",
       "description": "Durable Function Deployment extension for safe-deployment. Work with Backend service",
       "publisher": "TsuyoshiUshio",
       "galleryFlags": [
-        "Public"
+        "Private"
       ],
       "targets": [
         {
@@ -41,6 +41,24 @@
               "description": "Please store the URL of the Durable Functions API endpoint",
               "required": true
             },
+              "authenticationSchemes": [
+                {
+                  "type": "ms.vss-endpoint.endpoint-auth-scheme-none",
+                  "inputDescriptors": [
+                    {
+                      "id": "comment",
+                      "name": "comment",
+                      "description": "Leave Free Comment (not required)",
+                      "inputMode": "textArea",
+                      "isConfidential": false,
+                      "validation": {
+                        "isRequired": false,
+                        "dataType": "string"
+                      }
+                    }
+                  ]
+                }
+            ],
             "helpMarkDown": "<a href=\"https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask\" target=\"_blank\"><b>Learn More</b></a>"
           }
         },
@@ -78,15 +96,6 @@
           "targets": [ "ms.vss-distributed-task.tasks" ],
           "properties": {
             "name": "cleanup"
-          }
-        },
-        {
-          "id": "kubectl-task",
-          "description": "Task execute kubectl command",
-          "type": "ms.vss-distributed-task.task",
-          "targets": [ "ms.vss-distributed-task.tasks" ],
-          "properties": {
-            "name": "tasks/kubectl"
           }
         }    
       ],

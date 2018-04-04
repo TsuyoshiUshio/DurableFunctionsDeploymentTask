@@ -41,6 +41,16 @@ It deploy js files and copy node_modules into taks directories. If you want to a
 npm run deploy
 ```
 
+### build
+
+If you want to create a binary of the extension, you can do like this.  Then you can find a binary which you can upload to the market place.
+
+```
+npm run compile
+npm run deploy
+npm run build
+```
+
 ## memo
 
 For the frist creation, I've did this. 
