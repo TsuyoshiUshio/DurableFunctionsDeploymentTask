@@ -4,7 +4,7 @@
   "friendlyName": "Durable Functions Deploy Ready",
   "description": "Check if the Durable Function Staging Slot is ready",
   "author": "Tsuyoshi Ushio",
-  "helpMarkDown": "Replace with markdown to show in help",
+  "helpMarkDown": "<a href=\"https://github.com/TsuyoshiUshio/DurableFunctionsDeploymentTask\" target=\"_blank\"><b>Learn More</b></a>",
   "category": "Utility",
   "visibility": [
     "Build",
@@ -20,29 +20,17 @@
   "instanceNameFormat": "deployready $(message)",
   "inputs": [
     {
-      "name": "cwd",
-      "type": "filePath",
-      "label": "Working Directory",
-      "defaultValue": "",
-      "required": false,
-      "helpMarkDown": "Current working directory when deployready is run."
-    },
-    {
-      "name": "msg",
-      "type": "string",
-      "label": "Message",
-      "defaultValue": "Hello World",
+      "name": "durableService",
+      "type": "connectedService:durableapi",
+      "label": "Durable API endpoint",
       "required": true,
-      "helpMarkDown": "Message to echo out"
+      "helpMarkDown": "Select the Durable API endopoint to use."
     }
   ],
   "execution": {
     "Node": {
-      "target": "sample.js",
+      "target": "deployready.js",
       "argumentFormat": ""
-    },
-    "PowerShell3": {
-      "target": "sample.ps1"
     }
   }
 }

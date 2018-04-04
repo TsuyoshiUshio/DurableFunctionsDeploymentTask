@@ -1,32 +1,42 @@
 import tl = require('vsts-task-lib/task');
 import trm = require('vsts-task-lib/toolrunner');
-import mod = require('./taskmod');
+import request = require('request');
 
-async function run() {
-    try {
-        console.log(process.env["INPUT_SAMPLESTRING"]);
-        let tool: trm.ToolRunner;
-        if (process.platform == 'win32') {
-            let cmdPath = tl.which('cmd');
-            tool = tl.tool(cmdPath).arg('/c').arg('echo ' + tl.getInput('samplestring', true));
-        }
-        else {
-            let echoPath = tl.which('echo');
-            tool = tl.tool(echoPath).arg(tl.getInput('samplestring', true));
-        }
+export class DeployReadyCommand {
+    endpoint : string
+    serverURI : string;
 
-        let rc1: number = await tool.exec();
-        
-        // call some module which does external work
-        if (rc1 == 0) {
-            mod.sayHello();
-        }
-        
-        console.log('Task done! ' + rc1);
+    constructor() {
+        this.endpoint = tl.getInput('durableService');
+        this.serverURI = tl.getEndpointUrl(this.endpoint, true);
     }
-    catch (err) {
-        tl.setResult(tl.TaskResult.Failed, err.message);
+
+    exec() {
+
+        var headers = {
+            'Content-Type':'application/json'    
+        }
+        
+        var options = {
+            url: this.serverURI,
+            method: 'GET',
+            headers: headers,
+            json: true
+        }
+
+        request(options, function (error, response, body) {
+            if (error != null) {
+                tl.setResult(tl.TaskResult.Failed, error);
+            } else {
+            //    let bodyJson = JSON.parse(body)
+            if (body.hasRunning) {
+                tl.setResult(tl.TaskResult.Failed, "Staging slot has running activities");
+            } else {
+                tl.setResult(tl.TaskResult.Succeeded, "Staging slot doen't have running activity. Ready to deploy your app!");
+            }
+            }
+        })
     }
 }
-
-run();
+let command = new DeployReadyCommand();
+command.exec();
