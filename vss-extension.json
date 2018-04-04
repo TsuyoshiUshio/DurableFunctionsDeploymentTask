@@ -1,7 +1,7 @@
 {
     "manifestVersion": 1,
       "id": "durable-safe-deploy",
-      "version": "0.0.5",
+      "version": "0.0.6",
       "name": "Durable Function Safe Deployment extension",
       "description": "Durable Function Deployment extension for safe-deployment. Work with Backend service",
       "publisher": "TsuyoshiUshio",
