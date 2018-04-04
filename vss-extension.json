@@ -95,13 +95,13 @@
           "path": "deployready"
         },
         {
-          "path": "deploystaging"
+          "path": "deploytostaging"
         },
         {
           "path": "swap"
         },
         {
-          "path": "clean"
+          "path": "cleanup"
         }
       ]
     }
